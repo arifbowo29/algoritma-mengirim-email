@@ -1,0 +1,49 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class Email {
+private:
+    string sender;
+    string receiver;
+    string subject;
+    string message;
+
+public:
+    Email(string sender, string receiver, string subject, string message) {
+        this->sender = sender;
+        this->receiver = receiver;
+        this->subject = subject;
+        this->message = message;
+    }
+
+    void displayEmail() {
+        cout << "\nEmail successfully created and sent with the following details:" << endl;
+        cout << "From: " << sender << endl;
+        cout << "To: " << receiver << endl;
+        cout << "Subject: " << subject << endl;
+        cout << "Message: " << message << endl;
+    }
+};
+
+Email createEmail() {
+    string sender, receiver, subject, message;
+    cout << "Enter sender email address: ";
+    getline(cin, sender);
+    cout << "Enter receiver email address: ";
+    getline(cin, receiver);
+    cout << "Enter email subject: ";
+    getline(cin, subject);
+    cout << "Enter email message: ";
+    getline(cin, message);
+    return Email(sender, receiver, subject, message);
+}
+
+int main() {
+    cout << "Welcome to the email creation program." << endl;
+    Email newEmail = createEmail();
+    newEmail.displayEmail();
+
+    return 0;
+}
